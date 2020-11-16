@@ -73,17 +73,7 @@
         }
 
 
-        function playAnimation(animation) {
-            if (fox === document.querySelector('#dino')) {
-                sitting = animation.startsWith('Sit') && animation !== 'Sit_Up';
-                fox.setAttribute('animation-mixer', { clip: animation });
-                const listener = () => {
-                    fox.setAttribute('animation-mixer', { clip: sitting ? 'Sit_Idle' : idleAnimation });
-                    fox.removeEventListener('animation-loop', listener);
-                };
-                fox.addEventListener('animation-loop', listener);
-            }
-        }
+
 
         function onceSceneLoaded() {
             let raycaster = document.querySelector('[ar-raycaster]');
