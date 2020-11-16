@@ -135,12 +135,8 @@
             });
         }
 
-        /*function tryAgain() {
-            recognition.stop();
-            setTimeout(() => { recognition.start(); });          
-        }*/
       
-        function onCommand(results) {
+        /*function onCommand(results) {
             tryAgain();
             for (const result of results) {
                 for (const { transcript } of Array.from(result)) {
@@ -161,18 +157,7 @@
                     }
                 }
             }
-        }
-
-        /*try {
-            
-        recognition = new webkitSpeechRecognition();
-        recognition.continuous = true;
-        recognition.maxAlternatives = 5;
-        recognition.onresult = ({results}) => onCommand(results);
-        recognition.onerror = () => setTimeout(tryAgain, 500);
-        recognition.start();
-
-        } catch (err) { console.error(err.message); }*/
+        }*/
 
         scene.addEventListener('loaded', onceSceneLoaded);
     </script>
