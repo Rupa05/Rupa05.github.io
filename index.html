@@ -72,7 +72,7 @@
             walkAnimation = 'Fox_Run';
         }
 
-        function onceSceneLoaded() {
+        /*function onceSceneLoaded() {
             let raycaster = document.querySelector('[ar-raycaster]');
             let marker = document.querySelector('#intersection');
             activateFox();
@@ -133,30 +133,6 @@
                     setTimeout(() => marker.setAttribute('color', 'green'), 350);
                 }
             });
-        }
-
-      
-        /*function onCommand(results) {
-            tryAgain();
-            for (const result of results) {
-                for (const { transcript } of Array.from(result)) {
-                    if (transcript.toLowerCase().includes('fox')) {
-                        activateFox();
-                    }
-                    
-                    for (const animationKey of Object.keys(animations)) {
-                        if (transcript.toLowerCase().includes(animationKey.toLowerCase())) {
-                            playAnimation(animations[animationKey]);
-                            return;
-                        }
-                    }
-                    if (transcript.toLowerCase().includes('random')) {
-                        const animationKey = Object.keys(animations)[Math.floor(Math.random() * Object.keys(animations).length)];
-                        playAnimation(animations[animationKey]);
-                        return;
-                    }
-                }
-            }
         }*/
 
         scene.addEventListener('loaded', onceSceneLoaded);
