@@ -72,9 +72,6 @@
             walkAnimation = 'Fox_Run';
         }
 
-
-
-
         function onceSceneLoaded() {
             let raycaster = document.querySelector('[ar-raycaster]');
             let marker = document.querySelector('#intersection');
@@ -138,10 +135,10 @@
             });
         }
 
-        function tryAgain() {
+        /*function tryAgain() {
             recognition.stop();
             setTimeout(() => { recognition.start(); });          
-        }
+        }*/
       
         function onCommand(results) {
             tryAgain();
@@ -166,7 +163,7 @@
             }
         }
 
-        try {
+        /*try {
             
         recognition = new webkitSpeechRecognition();
         recognition.continuous = true;
@@ -175,7 +172,7 @@
         recognition.onerror = () => setTimeout(tryAgain, 500);
         recognition.start();
 
-        } catch (err) { console.error(err.message); }
+        } catch (err) { console.error(err.message); }*/
 
         scene.addEventListener('loaded', onceSceneLoaded);
     </script>
