@@ -88,6 +88,7 @@
 
             const { stringify } = AFRAME.utils.coordinates;
             raycaster.addEventListener('click', function () {
+                marker.setAttribute('color', 'blue');
                 const targetPosition = raycaster.components.cursor.intersectedEventDetail.intersection.point;
                 if (!walker.getAttribute('visible')) {
                     walker.setAttribute('visible', true);
@@ -101,15 +102,17 @@
                     if (!walker.getAttribute('animation')) {
                       walker.addEventListener('animationcomplete', () => {         
                         fox.setAttribute('animation-mixer', { clip: idleAnimation });
-                          
+                    });
+                }              
                     walker.setAttribute('animation', {
                       property: 'position',
                       to: stringify(targetPosition), 
                       dur: distance * 3000,
                       easing: 'linear'                      
                     });
-                    marker.setAttribute('color', 'blue');
+                    
                     setTimeout(() => marker.setAttribute('color', 'green'), 350);
+                    }
             });
         }
         scene.addEventListener('loaded', onceSceneLoaded);
