@@ -89,13 +89,13 @@
 
             const { stringify } = AFRAME.utils.coordinates;
 
-            let lastEvent = null;
+            //let lastEvent = null;
             raycaster.addEventListener('click', function () {
-                const currentEvent = new Date().getTime();
+                /*const currentEvent = new Date().getTime();
                 if (lastEvent && (currentEvent - lastEvent < 1000)) {
                     return;
                 }
-                lastEvent = currentEvent;
+                lastEvent = currentEvent;*/
 
                 const targetPosition = raycaster.components.cursor.intersectedEventDetail.intersection.point;
                 if (!walker.getAttribute('visible')) {
