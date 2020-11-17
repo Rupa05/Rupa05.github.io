@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> //set to screen aspect ratio 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Semester Project: Introduction to High Performance Computing</title>
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@e47f441/dist/aframe-master.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
@@ -13,7 +13,7 @@
         schema: {
             target: {type: 'selector'}
         },
-        init: function () {
+        init: function () { //racasting of surroundings
             this.el.addEventListener('raycaster-intersected', evt => {
                 this.raycaster = evt.detail.el;
             });
@@ -21,26 +21,26 @@
                 this.raycaster = null;
             });
         },
-        /*tick: function () {
+        tick: function () {//sets ball in direction pointed by user
             if (!this.raycaster) { return; } 
 
             let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
             if (!intersection) { return; }
             this.data.target.setAttribute("position", intersection.point);
-        }*/
+        }
     });
     
     </script>    
 
     <script>
-        AFRAME.registerComponent('shadow-material', {
+        AFRAME.registerComponent('shadow-material', { //create shadow of fox
             init: function () {
                 this.material = this.el.getOrCreateObject3D('mesh').material = new THREE.ShadowMaterial();
                 this.material.opacity = 0.3;
             }
         });
     </script>
-    <style> * { -webkit-tap-highlight-color: rgba(0,0,0,0); } </style>        
+     
 </head>
 
 <body>
