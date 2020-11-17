@@ -92,7 +92,8 @@
                 if (!walker.getAttribute('visible')) {
                     walker.setAttribute('visible', true);
                     walker.setAttribute('position', stringify(targetPosition));
-                } else {
+                } 
+                else {
                     const currentPosition = walker.object3D.position;
                     const distance = currentPosition.distanceTo(targetPosition);
                     walker.object3D.lookAt(targetPosition);
@@ -100,8 +101,7 @@
                     if (!walker.getAttribute('animation')) {
                       walker.addEventListener('animationcomplete', () => {         
                         fox.setAttribute('animation-mixer', { clip: idleAnimation });
-                      });
-                    }
+                          
                     walker.setAttribute('animation', {
                       property: 'position',
                       to: stringify(targetPosition), 
@@ -110,7 +110,6 @@
                     });
                     marker.setAttribute('color', 'blue');
                     setTimeout(() => marker.setAttribute('color', 'green'), 350);
-                }
             });
         }
         scene.addEventListener('loaded', onceSceneLoaded);
