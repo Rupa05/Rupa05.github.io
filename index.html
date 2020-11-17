@@ -8,12 +8,13 @@
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@e47f441/dist/aframe-master.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
     <script src="https://ghcdn.rawgit.org/chenzlabs/aframe-ar/8a7ee3b/dist/aframe-ar.min.js"></script>
+    
     <script>
-    AFRAME.registerComponent('raycaster-move', { //register component in aframe to access it in html
+    AFRAME.registerComponent('raycaster-move', {
         schema: {
             target: {type: 'selector'}
         },
-        init: function () { //racasting of surroundings
+        init: function () {
             this.el.addEventListener('raycaster-intersected', evt => {
                 this.raycaster = evt.detail.el;
             });
@@ -21,7 +22,7 @@
                 this.raycaster = null;
             });
         },
-        tick: function () {//sets ball in direction pointed by user
+        tick: function () {
             if (!this.raycaster) { return; } 
 
             let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
@@ -29,11 +30,10 @@
             this.data.target.setAttribute("position", intersection.point);
         }
     });
-    
     </script>    
 
     <script>
-        AFRAME.registerComponent('shadow-material', { //create shadow of fox
+        AFRAME.registerComponent('shadow-material', {
             init: function () {
                 this.material = this.el.getOrCreateObject3D('mesh').material = new THREE.ShadowMaterial();
                 this.material.opacity = 0.3;
@@ -67,7 +67,6 @@
             idleAnimation = 'Fox_Idle';
             walkAnimation = 'Fox_Run';
         }
-        
 
         function onceSceneLoaded() {
             let raycaster = document.querySelector('[ar-raycaster]');
@@ -88,15 +87,7 @@
             });
 
             const { stringify } = AFRAME.utils.coordinates;
-
-            //let lastEvent = null;
             raycaster.addEventListener('click', function () {
-                /*const currentEvent = new Date().getTime();
-                if (lastEvent && (currentEvent - lastEvent < 1000)) {
-                    return;
-                }
-                lastEvent = currentEvent;*/
-
                 const targetPosition = raycaster.components.cursor.intersectedEventDetail.intersection.point;
                 if (!walker.getAttribute('visible')) {
                     walker.setAttribute('visible', true);
@@ -122,9 +113,7 @@
                 }
             });
         }
-
         scene.addEventListener('loaded', onceSceneLoaded);
     </script>
 </body>
-
 </html>
