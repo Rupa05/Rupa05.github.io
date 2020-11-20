@@ -10,9 +10,6 @@
     
     <script>
     AFRAME.registerComponent('raycaster-move', {
-        schema: {
-            target: {type: 'selector'}
-        },
         
         init: function () {
             this.el.addEventListener('raycaster-intersected', evt => {
