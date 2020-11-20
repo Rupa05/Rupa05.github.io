@@ -11,15 +11,6 @@
     <script>
     AFRAME.registerComponent('raycaster-move', {
         
-        init: function () {
-            this.el.addEventListener('raycaster-intersected', evt => {
-                this.raycaster = evt.detail.el;
-            });
-            this.el.addEventListener('raycaster-intersected-cleared', evt => {
-                this.raycaster = null;
-            });
-        },
-        
         tick: function () {
             if (!this.raycaster) { return; } 
 
